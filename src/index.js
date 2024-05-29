@@ -131,9 +131,9 @@ function getReply(command) {
   }
 
   if (command === "What is on my todo?") {
-    // if (todo.length === 0) {
-    //   return "Your todo is empty";
-    // }
+    if (todo.length === 0) {
+      return "Your todo is empty";
+    }
 
     return `You have ${todo.length} todos - ${todo.join(", ")}`;
   }
