@@ -87,9 +87,12 @@ const getName = (sentence) => {
 function getActivity(sentence, isAdding = true) {
   //extracting a word/phrase from command that follow this specific pattern
   const matchPattern = isAdding
-    ? /add (.*?) to my to-do/
-    : /remove (.*?) from my to-do/;
+    ? /add (.*?) to my to do/
+    : /remove (.*?) from my to do/;
   const match = sentence.match(matchPattern);
+  console.log("match: ", match);
+  console.log("match[1]: ", match[1]);
+  console.log(match[1]);
   return match[1];
 }
 
@@ -207,8 +210,8 @@ function setTimer(timeInfo, command) {
   user.activeTimerId = setTimeout(() => {
     console.log(getReply(command)); //for seeing the message in consol
     //code for working artyom.js
-    // const response = getReply(command);
-    // artyom.say(response);
+    const response = getReply(command);
+    artyom.say(response);
     clearTimeout(user.activeTimerId);
   }, timeInMilliseconds);
 
@@ -233,10 +236,10 @@ function getNiceMessage() {
 const isSayHello = (command) => command.includes("hello my name is");
 const askName = (command) => command.includes("what is my name");
 const addTodo = (command) =>
-  command.startsWith("add") && command.endsWith("to my to-do");
+  command.startsWith("add") && command.endsWith("to my to do");
 const removeTodo = (command) =>
-  command.startsWith("remove") && command.endsWith("from my to-do");
-const askListTodos = (command) => command.includes("what is on my to-do");
+  command.startsWith("remove") && command.endsWith("from my to do");
+const askListTodos = (command) => command.includes("what is on my to do");
 const askCurrentDate = (command) => command.includes("what day is it today");
 const askDoingMath = (command) =>
   command.startsWith("what is") &&
@@ -299,12 +302,12 @@ function getReply(command) {
       return getNiceMessage();
 
     default:
-      return `I didn't understand that command. Repeat, please`;
+      return `Nope`;
   }
 }
 
 //Testing
-// console.log(getReply('What is my name')); //It seems you haven't introduced yourself yet! What's your name?
+// console.log(getReply("What is my name")); //It seems you haven't introduced yourself yet! What's your name?
 // console.log(getReply('Hello my name is Benjamin')); //Nice to meet you Benjamin
 // console.log(getReply('Hello my name is Benjamin')); //I already know you, Benjamin
 // console.log(getReply('What is my name')); //Your name is Benjamin
