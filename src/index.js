@@ -1,5 +1,3 @@
-import "./styles.scss";
-
 // Or if installed from NPM to use with a bundler
 import Artyom from "artyom.js";
 // const artyom = require("artyom.js");
@@ -59,3 +57,4 @@ if (isgetReplyAvailable()) {
 } else {
   alert("add the getReply function!");
 }
+// trainee code starts from here
