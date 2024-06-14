@@ -1,0 +1,1 @@
+To run the project, navigate to `cd` to root folder. Then `npm i` to install all dependencies. Run the server with `npm run start`. Remember to checkout the right branch and to `click` the button to chat. Have the console open to see for errors.
